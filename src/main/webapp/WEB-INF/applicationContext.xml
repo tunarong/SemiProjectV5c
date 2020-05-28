@@ -10,7 +10,7 @@
             location="/WEB-INF/jdbc.properties" />
 
     <!-- jdbc properties : 모든 파일에 속성값 적용 -->
-    <util:properties id="jdbc" location="WEB-INF/jdbc.properties" />
+    <util:properties id="jdbc" location="/WEB-INF/jdbc.properties" />
 
     <!-- dbcp datasource -->
     <bean id="dbcpDataSource"
