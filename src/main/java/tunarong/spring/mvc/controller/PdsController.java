@@ -67,7 +67,10 @@ public class PdsController {
                 case "title":pd.setTitle(val);break;
                 case "userid":pd.setUserid(val);break;
                 case "contents":pd.setContents(val);break;
+
                 case "file1":pd.setFname(val);break;
+                case "file1size":pd.setFsize(val);break;
+                case "file1type":pd.setFtype(val);break;
             }
         }
 
