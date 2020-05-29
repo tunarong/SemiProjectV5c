@@ -5,10 +5,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import tunarong.spring.mvc.service.FileUpDownUtil;
 import tunarong.spring.mvc.service.PdsService;
 import tunarong.spring.mvc.vo.PdsVO;
 
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
+import java.util.Map;
 
 @Controller
 public class PdsController {
@@ -50,9 +54,14 @@ public class PdsController {
 
     // 새글쓰기
     @RequestMapping(value = "/pds/write", method = RequestMethod.POST)
-    public String writeok(PdsVO pd) {
+    public String writeok(PdsVO pd, HttpServletRequest req) {
 
-        psrv.newPds(pd);
+        // 업로드 처리
+        FileUpDownUtil util = new FileUpDownUtil();
+        Map<String, String> frmdata = util.procUpload(req);
+
+        // 서비스 객체로 넘김
+        psrv.newPds(pd, frmdata);
 
         return "redirect:/pds/list";
     }

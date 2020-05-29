@@ -6,6 +6,7 @@ import tunarong.spring.mvc.dao.PdsDAO;
 import tunarong.spring.mvc.vo.PdsVO;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 @Service("psrv")
 public class PdsService {
@@ -17,14 +18,11 @@ public class PdsService {
         this.pdao = pdao;
     }
 
-    public String newPds(PdsVO pd) {
+    public String newPds(PdsVO pd, Map<String, String> frmdata) {
         String result = "데이터 입력 실패!";
 
-        // 첨부파일 정보를 임의로 저장
-        pd.setFname("doggy");
-        pd.setFsize("123");
-        pd.setFdown("98");
-        pd.setFtype("zip");
+        procFormdata(pd, frmdata);
+        pd.setFdown("0");
 
         if (pdao.insertPds(pd))
             result = "데이터 입력 성공!!";
@@ -43,4 +41,21 @@ public class PdsService {
         return pdao.selectOnePds(pno);
     }
 
+    // multipart 폼 데이터 처리
+    private void procFormdata(PdsVO pd, Map<String, String> frmdata) {
+
+        // multipart 폼 데이터 처리
+        for(String key:frmdata.keySet()) {
+            String val = frmdata.get(key);
+            switch (key) {
+                case "title":pd.setTitle(val);break;
+                case "userid":pd.setUserid(val);break;
+                case "contents":pd.setContents(val);break;
+
+                case "file1":pd.setFname(val);break;
+                case "file1size":pd.setFsize(val);break;
+                case "file1type":pd.setFtype(val);break;
+            }
+        }
+    }
 }
