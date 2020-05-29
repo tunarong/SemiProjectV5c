@@ -60,23 +60,8 @@ public class PdsController {
         FileUpDownUtil util = new FileUpDownUtil();
         Map<String, String> frmdata = util.procUpload(req);
 
-        // multipart 폼 데이터 처리
-        for(String key:frmdata.keySet()) {
-            String val = frmdata.get(key);
-            switch (key) {
-                case "title":pd.setTitle(val);break;
-                case "userid":pd.setUserid(val);break;
-                case "contents":pd.setContents(val);break;
-
-                case "file1":pd.setFname(val);break;
-                case "file1size":pd.setFsize(val);break;
-                case "file1type":pd.setFtype(val);break;
-            }
-        }
-
-
         // 서비스 객체로 넘김
-        psrv.newPds(pd);
+        psrv.newPds(pd, frmdata);
 
         return "redirect:/pds/list";
     }
