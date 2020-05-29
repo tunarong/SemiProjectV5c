@@ -38,7 +38,13 @@ public class PdsService {
     }
 
     public PdsVO showOnePds(String pno) {
+        pdao.updateViewPds(pno); // 조회수 증가
         return pdao.selectOnePds(pno);
+    }
+
+    // 첨부파일 다운 수 처리
+    public void modifyDown(String pno) {
+        pdao.updateDownPds(pno);
     }
 
     // multipart 폼 데이터 처리
@@ -58,4 +64,6 @@ public class PdsService {
             }
         }
     }
+
+
 }
