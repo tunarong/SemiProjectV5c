@@ -26,6 +26,20 @@
 	<style>
 		.button-lightpurple:hover {color: #3F3F3F;}
 		.item_detail img {margin-top: 20px;}
+
+		/*민주 - 리뷰*/
+		.starR{
+			background: url('http://miuu227.godohosting.com/images/icon/ico_review.png') no-repeat right 0;
+			background-size: auto 100%;
+			width: 30px;
+			height: 30px;
+			display: inline-block;
+			text-indent: -9999px;
+			cursor: pointer;
+		}
+		.starR.on{background-position:0 0;}
+
+
 	</style>
 
 	<!-- Document Title
@@ -204,8 +218,10 @@
 
 					<!--// 상품 디테일-->
 					<a name="detail"></a>
-					<div class="item_info" style="/*border: 1px solid black;*/ margin-top: 30px;">
-
+					<div class="item_info" style="border: 1px solid black; margin-top: 30px;">
+						<div style="border: 1px solid red;">
+							<h3 style="margin-left: 30px; font-size: 50px;">Detail</h3>
+						</div>
 						<!--상세정보-->
 						<div class="item_detail" style="text-align: center; ">
 							<ul style="list-style: none;">
@@ -238,15 +254,236 @@
 
 						<!--리뷰-->
 						<a name="review"></a>
-						<div>
+
+						<div style="border: 1px solid red;">
+							<h3 style="margin-left: 30px; font-size: 50px;">Review</h3>
 						</div>
+
+
+							<div class="tab-content clearfix" id="tabs-3" style="border: 1px solid blue;">
+
+								<div id="reviews" class="clearfix" style="border: 3px solid yellow;">
+
+									<ol class="commentlist clearfix" style="border: 1px solid hotpink;">
+
+										<li class="comment even thread-even depth-1" id="li-comment-1">
+											<div id="comment-1" class="comment-wrap clearfix">
+
+												<div>
+
+													<div class="comment-meta">
+														<div class="comment-author vcard">
+														  <span class="comment-avatar clearfix">
+														  <img alt='' src="images/shop/dress/3.jpg" height='100' width='100' /></span>
+														</div>
+													</div>
+
+													<div class="comment-content clearfix">
+														<div class="comment-author">아주좋아요~~!<span>키 : 170cm / 몸무게 : 45kg / 사이즈 : M / 색상 : 블랙</span></div>
+														<p>어쩌구저쩌구 좋아요</p>
+														<div class="review-comment-ratings">
+															<i class="icon-star3"></i>
+															<i class="icon-star3"></i>
+															<i class="icon-star3"></i>
+															<i class="icon-star3"></i>
+															<i class="icon-star-half-full"></i>
+														</div>
+													</div>
+
+												</div>
+												<div class="clear"></div>
+
+											</div>
+										</li>
+
+										<li class="comment even thread-even depth-1" id="li-comment-1">
+											<div id="comment-1" class="comment-wrap clearfix">
+
+												<div>
+
+													<div class="comment-meta">
+														<div class="comment-author vcard">
+														  <span class="comment-avatar clearfix">
+														  <img alt='' src="images/shop/dress/3.jpg" height='100' width='100' /></span>
+														</div>
+													</div>
+
+													<div class="comment-content clearfix">
+														<div class="comment-author">아주좋아요~~!<span>키 : 170cm / 몸무게 : 45kg / 사이즈 : M / 색상 : 블랙</span></div>
+														<p>어쩌구저쩌구 좋아요</p>
+														<div class="review-comment-ratings">
+															<i class="icon-star3"></i>
+															<i class="icon-star3"></i>
+															<i class="icon-star3"></i>
+															<i class="icon-star3"></i>
+															<i class="icon-star-half-full"></i>
+														</div>
+													</div>
+
+												</div>
+												<div class="clear"></div>
+
+											</div>
+										</li>
+										<li class="comment even thread-even depth-1" id="li-comment-1">
+											<div id="comment-1" class="comment-wrap clearfix">
+
+												<div>
+
+													<div class="comment-meta">
+														<div class="comment-author vcard">
+														  <span class="comment-avatar clearfix">
+														  <img alt='' src="images/shop/dress/3.jpg" height='100' width='100' /></span>
+														</div>
+													</div>
+
+													<div class="comment-content clearfix">
+														<div class="comment-author">아주좋아요~~!<span>키 : 170cm / 몸무게 : 45kg / 사이즈 : M / 색상 : 블랙</span></div>
+														<p>어쩌구저쩌구 좋아요</p>
+														<div class="review-comment-ratings">
+															<i class="icon-star3"></i>
+															<i class="icon-star3"></i>
+															<i class="icon-star3"></i>
+															<i class="icon-star3"></i>
+															<i class="icon-star-half-full"></i>
+														</div>
+													</div>
+
+												</div>
+												<div class="clear"></div>
+
+											</div>
+										</li>
+
+												<div class="clear"></div>
+
+
+									</ol>
+
+
+								<div style="border: 1px solid green;">
+									<div class="text-right" style="margin-right: 30px;">
+										<a href="#" data-toggle="modal" data-target="#reviewFormModal"><button class="button button-lightpurple" style="background-color: #b391d6;">리뷰 작성하기</button></a>
+									</div>
+
+									<ul class="pagination justify-content-center">
+										<li class="disabled"><a href="#">이전</a></li>
+										<li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+										<li><a href="#">2</a></li>
+										<li><a href="#">3</a></li>
+										<li><a href="#">4</a></li>
+										<li><a href="#">5</a></li>
+										<li><a href="#">다음</a></li>
+									</ul>
+								</div>
+
+
+								<!-- Modal Reviews
+                                ============================================= -->
+
+									<div class="modal fade" id="reviewFormModal" tabindex="-1" role="dialog" aria-labelledby="reviewFormModalLabel" aria-hidden="true">
+										<div class="modal-dialog">
+											<div class="modal-content">
+												<div style="" class="modal-header">
+													<h2 class="modal-title"  id="reviewFormModalLabel">상품후기</h2>
+													<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+												</div>
+												<div class="modal-body">
+													<form class="nobottommargin" id="template-reviewform" name="template-reviewform" action="#" method="post">
+
+														<div class="row">
+															<div class="col-sm-7">
+																<label for="template-reviewform-name">리뷰명<small>*</small></label>
+																<div class="input-group" style="width:100%;">
+																	<input type="text" id="template-reviewform-name" name="template-reviewform-name" value="" class="form-control required" style="margin-top: 5px;"/>
+																</div>
+															</div>
+
+															<div class="col-sm-5 col_last" style="float:right; width:180px">
+																<label for="template-reviewform-email">별점</label>
+																<div class="input-group">
+																	<div class="starRev">
+																		<span class="starR on">별1</span>
+																		<span class="starR">별2</span>
+																		<span class="starR">별3</span>
+																		<span class="starR">별4</span>
+																		<span class="starR">별5</span>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="clear"></div>
+
+														<div class="col_full col_last" style="margin-top: 20px;">
+															<label for="template-reviewform-rating">사이즈</label>
+															<select id="template-reviewform-rating" name="template-reviewform-rating" class="form-control">
+																<option value="">-- Select One --</option>
+																<option value="1">XS</option>
+																<option value="2">S</option>
+																<option value="3">M</option>
+																<option value="4">L</option>
+																<option value="5">XL</option>
+															</select>
+														</div>
+
+														<div class="col_full col_last">
+															<label for="template-reviewform-rating">색상</label>
+															<select id="template-reviewform-rating" name="template-reviewform-rating" class="form-control">
+																<option value="">-- Select One --</option>
+																<option value="1">블랙</option>
+																<option value="2">아이보리</option>
+																<option value="3">화이트</option>
+																<option value="4">핑크</option>
+																<option value="5">레드</option>
+															</select>
+														</div>
+
+
+
+														<div class="clear"></div>
+
+														<div class="col_full">
+															<label for="template-reviewform-comment">내용 <small>*</small></label>
+															<textarea class="required form-control" id="template-reviewform-comment" name="template-reviewform-comment" rows="6" cols="30"></textarea>
+														</div>
+
+
+
+
+
+
+
+													</form>
+												</div>
+												<div class="modal-footer" style="text-align: center;">
+													<div class="col_full nobottommargin">
+														<button  class="button button-lightpurple" style="background-color: #b391d6;" type="submit" id="template-reviewform-submit" name="template-reviewform-submit" value="submit">Submit Review</button>
+													</div>
+												</div>
+											</div><!-- /.modal-content -->
+										</div><!-- /.modal-dialog -->
+									</div><!-- /.modal -->
+									<!-- Modal Reviews End -->
+
+								</div>
+
+							</div>
 						<!--//리뷰-->
 
 						<!--문의사항-->
 						<a name="qna"></a>
-						<div>
+						<div style="border: 1px solid red;">
+							<h3 style="margin-left: 30px; font-size: 50px;">QnA</h3>
 						</div>
 						<!--//문의사항-->
+
+						</div>
+
+
+
+
+
 
 					</div>
 
@@ -303,4 +540,14 @@
 
 
 </body>
+
+<script>
+    $('.starRev span').click(function(){
+        $(this).parent().children('span').removeClass('on');
+        $(this).addClass('on').prevAll('span').addClass('on');
+        return false;
+    });
+</script>
+
+
 </html>
