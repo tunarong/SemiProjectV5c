@@ -11,13 +11,23 @@
     <link rel="stylesheet" href="tj/css/malls.css">
 
     <style>
+        /*나현 추가*/
+        a:link{color: black; text-decoration: none;}
+        a:visited{color: black; text-decoration: none;}
+        a:hover{color: #b391d6; text-decoration: none;}
+        a:active{color: #b391d6; text-decoration: none;}
+
+        #hmenu a:link{color: white; text-decoration: none;}
+        #hmenu a:visited{color: white; text-decoration: none;}
+        #hmenu a:hover{color: white; text-decoration: underline;}
+        #hmenu a:active{color: white; text-decoration: none;}
 
         #topnav {height: 75px; padding: 1rem; color: white; background: teal;  font-weight: bold; display: flex; justify-content: space-between;
             align-items: center; position: fixed; top: 0; width: 100%; left: 0; right: 0; opacity: 0.7;
             background: #b391d6; z-index: 2;}
 
 
-        #logo{width : 200px; height: 200px; margin:0px; padding:0; float: left; padding-top: 75px;}
+       /* #logo{width : 200px; height: 200px; margin:0px; padding:0; float: left; padding-top: 75px;}
         #topmenu {width: 900px; height: 120px; float: right; margin: 0; padding: 0; padding-top: 75px;}
         #search {margin-left: 0px; margin-top:50px; top:100px; left: -100px; }
         #searchbar {width: 350px; height: 35px; }
@@ -29,7 +39,7 @@
         #nav {margin: 0px;}
         #nmenu {list-style-type: none; top: 20px; float: left; margin-top: 0px; margin-left: 200px;}
         #nmenu li {float: left;}
-
+*/
 
         #main {clear: both; float: left; }
         .malls { width: 1600px; height: 500px; margin-left: 20px; margin-top: 50px; }
@@ -129,34 +139,42 @@
     <div id="topnav">
         <h1><img src="../img/logo_square.PNG" style="height: 75px;"> </h1>
 
-        <nav>
-            <span>Menu1</span>
-            <span>Menu2</span>
-            <span>Menu3</span>
-        </nav>
-    </div>
-
-    <span id="logo"><a href="main.html"><img src="../img/logo_circle.PNG" style="width: 200px; opacity: 0.7;"></a></span>
-    <div id="topmenu">
         <ul id = "hmenu" style="font-weight: bold;">
-            <li>마이페이지 | </li>
-            <li>&nbsp;장바구니 | </li>
-            <li>&nbsp;주문내역 | </li>
-            <li>&nbsp;로그아웃 </li>
+            <li><a href="#"> 마이페이지 | </a></li>
+            <li><a href="#">&nbsp;장바구니 | </a></li>
+            <li><a href="#">&nbsp;주문내역 | </a></li>
+            <li><a href="#">&nbsp;로그아웃 </a></li>
         </ul>
+    </div>
+<!--헤더 감싸기-->
+    <div class="row" style="margin-top: 80px;">
+        <!--로고-->
+        <div class="col-md-3" style="border: 1px solid red;">
+        <span><a href="main.html"><img src="../img/logo_circle.PNG" style="width: 200px; opacity: 0.7; margin-top: 10px; margin-left: 40px;"></a></span>
+        </div><!--//헤더 좌측-->
 
-        <div id ="search" class=""><input type="text" id="searchbar" placeholder="&nbsp;Best For You" style="float: left; border: 2px solid #b391d6; margin-top: 2px; margin-right: 5px;">
-            <button type="button" class="btn" style="background-color: #b391d6; color: white; opacity: 0.7; float: left;" ><i class="fa fa-search"></i> 검색</button></div>
+        <div class="col-md-9" style="border: 1px solid blue;">
+
+            <div style="border: 1px solid green; height:100px; padding-left: 100px; padding-top: 30px;">
+                <input type="text" id="searchbar" placeholder="&nbsp;Best For You" style="width: 500px; height: 35px; float: left; border: 2px solid #b391d6; margin-top: 2px; margin-right: 5px;">
+                <button type="button" class="btn" style="background-color: #b391d6; color: white; opacity: 0.7; float: left;" ><i class="fa fa-search"></i> 검색</button>
+            </div>
+
+
+
+            <div style="border: 1px solid yellow; height: 100px;  clear: both; ">
+                <ul style="list-style: none; font-weight: bold;">
+                    <li><a href="#">베스트 | </a></li>
+                    <li><a href="#">&nbsp;신상 |</a></li>
+                    <li><a href="#">&nbsp;이벤트</a></li>
+                </ul>
+            </div>
+
+        </div><!--//헤더 우측-->
+
     </div>
 </header>
-<hr id="hr1">
-<nav id="nav">
-    <ul id = "nmenu">
-        <li>베스트 | </li>
-        <li>&nbsp;신상 | </li>
-        <li>&nbsp;이벤트 |</li>
-    </ul>
-</nav>
+
 
 <main id="main">
     <img src="img/shoplogo1.png" id="shoplogo1" class="shoplogo">
