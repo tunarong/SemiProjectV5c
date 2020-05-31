@@ -41,8 +41,8 @@
         #nmenu li {float: left;}
 */
 
-        #main {clear: both; float: left; }
-        .malls { width: 1600px; height: 500px; margin-left: 20px; margin-top: 50px; }
+        #main {clear: both; float: left; width: 100%; border: 5px solid blue;}
+        .malls {border: 1px solid red; width: 1600px; height: 500px; margin-left: 20px; margin-top: 50px;}
         .shoplogo {width: 1425px; height: 100px; float: left; margin-top: 80px; margin-bottom: 30px; margin-left: 50px;}
         .introimg {width: 320px; height: 450px; }
         .product {float: left; margin-left: 30px; margin-right: 20px; margin-bottom: 50px;}
@@ -133,7 +133,6 @@
 </head>
 <body>
 
-
 <header>
 
     <div id="topnav">
@@ -146,11 +145,11 @@
             <li><a href="#">&nbsp;로그아웃 </a></li>
         </ul>
     </div>
-<!--헤더 감싸기-->
+    <!--헤더 감싸기-->
     <div class="row" style="margin-top: 80px;">
         <!--로고-->
         <div class="col-md-3" style="/*border: 1px solid red;*/">
-        <span><a href="main.html"><img src="../img/logo_circle.PNG" style="width: 200px; opacity: 0.7; margin-top: 10px; margin-left: 40px;"></a></span>
+            <span><a href="main.html"><img src="../img/logo_circle.PNG" style="width: 200px; opacity: 0.7; margin-top: 10px; margin-left: 40px;"></a></span>
         </div><!--//헤더 좌측-->
 
         <div class="col-md-9" style="/*border: 1px solid blue;*/">
@@ -176,8 +175,96 @@
     </div>
 </header>
 
+<!--수정?-->
+<!--<header>
+
+    <div id="topnav">
+        <h1><img src="../img/logo_square.PNG" style="height: 75px;"> </h1>
+
+        <ul id = "hmenu" style="font-weight: bold;">
+            <li><a href="#"> 마이페이지 | </a></li>
+            <li><a href="#">&nbsp;장바구니 | </a></li>
+            <li><a href="#">&nbsp;주문내역 | </a></li>
+            <li><a href="#">&nbsp;로그아웃 </a></li>
+        </ul>
+    </div>
+&lt;!&ndash;헤더 감싸기&ndash;&gt;
+    <div class="row" style="margin-top: 80px; /*border: 5px solid yellow;*/">
+        &lt;!&ndash;로고&ndash;&gt;
+        <div class="col-md-2" style="/*border: 1px solid red;*/">
+        <span><a href="main.html"><img src="../img/logo_circle.PNG" style="width: 180px; opacity: 0.7; margin-top: 10px; margin-left: 40px;"></a></span>
+        </div>&lt;!&ndash;//헤더 좌측&ndash;&gt;
+
+        <div class="col-md-10" style="/*border: 1px solid blue;*/">
+
+                <div style="padding-top: 75px; padding-left: 100px;">
+                    <input type="text" id="searchbar" placeholder="&nbsp;Best For You" style="width: 500px; height: 35px; float: left; border: 2px solid #b391d6; margin-top: 2px; margin-right: 5px;">
+                    <button type="button" class="btn" style="background-color: #b391d6; color: white; opacity: 0.7; float: left;" ><i class="fa fa-search"></i> 검색</button>
+                </div>
+                <ul style="list-style: none; font-weight: bold; padding-top: 30px; padding-right: 10px; float: right;">
+                    <li style="float: left;"><a href="#">베스트 | </a></li>
+                    <li style="float: left;"><a href="#">&nbsp;신상 |</a></li>
+                    <li style="float: left;"><a href="#">&nbsp;이벤트</a></li>
+                </ul>
+
+
+
+            </div>
+
+        </div>&lt;!&ndash;//헤더 우측&ndash;&gt;
+
+    </div>
+</header>-->
+
+<!--슬라이드-->
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="height: 500px;">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
+    </ol>
+
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="../img/MainPic/Main1.PNG" style="max-width: 100%; height: 500px;" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="../img/MainPic/Main2.PNG" style="max-width: 100%; height: 500px;" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="../img/MainPic/Main3.PNG" style="max-width: 100%; height: 500px;" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="../img/MainPic/Main4.PNG" style="max-width: 100%; height: 500px;" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="../img/MainPic/Main5.PNG" style="max-width: 100%; height: 500px;" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="../img/MainPic/Main6.PNG" style="max-width: 100%; height: 500px;" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="../img/MainPic/Main7.PNG" style="max-width: 100%; height: 500px;" class="d-block w-100" alt="...">
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+<!--//슬라이드-->
+
 
 <main id="main">
+
     <img src="img/shoplogo1.png" id="shoplogo1" class="shoplogo">
     <div id="malls1" class="malls">
 
