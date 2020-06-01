@@ -62,3 +62,16 @@ create table gallery(
   fname3    varchar(50)
 
 );
+
+-- zipcode : 지번주소 (2013.02기준 총 52144건)
+create table zipcode (
+  zipcode varchar(7),
+  sido varchar(10),
+  gugun varchar(25),
+  dong varchar(35),
+  li varchar(50),
+  bunji varchar(25),
+  seq varchar(5)
+);
+
+select * from zipcode where dong like '이도일동';
