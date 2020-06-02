@@ -1,5 +1,6 @@
 package tunarong.spring.mvc.service;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tunarong.spring.mvc.dao.MemberDAO;
@@ -49,13 +50,38 @@ public class MemberService {
         return sb.toString();*/
 
         // {zip:"123-456", sido:"서울", gugun:"종로구", dong:"창신동", bunji:"987-456번지"}
-        StringBuilder sb = new StringBuilder();
+       /* StringBuilder sb = new StringBuilder();
         sb.append("{zip:\"123-456\",")
           .append("sido:\"서울\",")
           .append("gugun:\"종로구\",")
           .append("dong:\"창신동\",")
           .append("bunji:\"987-456번지\"}");
 
-        return sb.toString();
+        return sb.toString();*/
+
+
+    // JSON : Javascript Object Notation
+    // 자바스크립트 객체 표기법
+    // 데이터 교환에 사용하는 경량급 데이터 정의 언어
+    // 사람이 읽기 쉽고, 기계가 분석하기도 쉬워
+    // 데이터 교환에 오랫동안 사용했던 xml을 대체하고있다.
+
+    // JSON 데이터는 이름/값으로 구성
+        // 각각의 데이터는 ,로 구분
+        // 하나의 객체는 {}로 정의,
+        // 여러 객체들은 []로 정의
+
+    // ObjectMapper 라이브러리를 이용하면 손쉽게 JSON 유형의 데이터 생성 가능
+    ObjectMapper mapper = new ObjectMapper();
+    String json = "";
+
+    try {
+        json = mapper.writeValueAsString(
+                mdao.selectZipcode(dong)
+        ); // 검색한 주소데이터를 json형식으로 변환
+    } catch (Exception ex) {
+        ex.printStackTrace();
+    }
+    return json;
     }
 }
