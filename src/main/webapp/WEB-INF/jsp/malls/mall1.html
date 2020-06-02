@@ -137,7 +137,45 @@
 
     <div id="topnav">
         <h1><img src="../img/logo_square.PNG" style="height: 75px;"> </h1>
+        <div>
+            <div class="combi_filters">
+                <div class="styles_filter">
+                    <h3>Styles</h3>
+                    <input type="checkbox" id="styleall" name="styleall" value="*">
+                    <span class="box"></span>
+                    <label for="styleall">All</label>
 
+                    <input type="checkbox" id="basic" name="basic" value="basic">
+                    <span class="box"></span>
+                    <label for="basic">basic</label>
+
+                    <input type="checkbox" id="lovely" name="lovely" value="lovely">
+                    <span class="box"></span>
+                    <label for="lovely">lovely</label>
+
+                    <input type="checkbox" id="unique" name="unique" value="unique">
+                    <span class="box"></span>
+                    <label for="unique">unique</label>
+
+                    <input type="checkbox" id="elegant" name="elegant" value="elegant">
+                    <span class="box"></span>
+                    <label for="elegant">elegant</label>
+
+                    <input type="checkbox" id="sexy" name="sexy" value="sexy">
+                    <span class="box"></span>
+                    <label for="sexy">sexy</label>
+
+                    <input type="checkbox" id="comfortable" name="comfortable" value="comfortable">
+                    <span class="box"></span>
+                    <label for="comfortable">comfortable</label>
+
+
+
+
+                </div>
+            </div>
+
+        </div><!--//헤더 중앙 필터-->
         <ul id = "hmenu" style="font-weight: bold;">
             <li><a href="#"> 마이페이지 | </a></li>
             <li><a href="#">&nbsp;장바구니 | </a></li>
@@ -217,7 +255,7 @@
 </header>-->
 
 <!--슬라이드-->
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="height: 500px;">
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="height: 410px;">
     <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -230,25 +268,25 @@
 
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="../img/MainPic/Main1.PNG" style="max-width: 100%; height: 500px;" class="d-block w-100" alt="...">
+            <img src="../img/MainPic/slide2.PNG" style="max-width: 100%; /*height: 500px;*/" class="d-block w-100" alt="...">
         </div>
         <div class="carousel-item">
-            <img src="../img/MainPic/Main2.PNG" style="max-width: 100%; height: 500px;" class="d-block w-100" alt="...">
+            <img src="../img/MainPic/slide3.PNG" style="max-width: 100%; /*height: 500px;*/" class="d-block w-100" alt="...">
         </div>
         <div class="carousel-item">
-            <img src="../img/MainPic/Main3.PNG" style="max-width: 100%; height: 500px;" class="d-block w-100" alt="...">
+            <img src="../img/MainPic/slide4.PNG" style="max-width: 100%; /*height: 500px;*/" class="d-block w-100" alt="...">
         </div>
         <div class="carousel-item">
-            <img src="../img/MainPic/Main4.PNG" style="max-width: 100%; height: 500px;" class="d-block w-100" alt="...">
+            <img src="../img/MainPic/slide5.PNG" style="max-width: 100%; /*height: 500px;*/" class="d-block w-100" alt="...">
         </div>
         <div class="carousel-item">
-            <img src="../img/MainPic/Main5.PNG" style="max-width: 100%; height: 500px;" class="d-block w-100" alt="...">
+            <img src="../img/MainPic/slide6.PNG" style="max-width: 100%; /*height: 500px;*/" class="d-block w-100" alt="...">
         </div>
         <div class="carousel-item">
-            <img src="../img/MainPic/Main6.PNG" style="max-width: 100%; height: 500px;" class="d-block w-100" alt="...">
+            <img src="../img/MainPic/slide7.PNG" style="max-width: 100%; /*height: 500px;*/" class="d-block w-100" alt="...">
         </div>
         <div class="carousel-item">
-            <img src="../img/MainPic/Main7.PNG" style="max-width: 100%; height: 500px;" class="d-block w-100" alt="...">
+            <img src="../img/MainPic/slide1.PNG" style="max-width: 100%; /*height: 500px;*/" class="d-block w-100" alt="...">
         </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -261,6 +299,7 @@
     </a>
 </div>
 <!--//슬라이드-->
+
 
 
 <main id="main">
@@ -619,7 +658,30 @@
         }
     );
 </script>
+<script>
+    var styleFilter = $('.styles_filter input');
+    var targetList =$('.malls');
 
+
+    styleFilter.click(function () {
+        var targetValue = [];
+
+
+
+        styleFilter.filter(':checked').each(function () {
+
+            targetValue.push('.' + $(this).val());
+        });
+
+        var targetClass = targetValue.join(', ');
+
+        targetList.hide();
+        $(targetClass).fadeIn();
+
+    });
+
+
+</script>
 
 </body>
 </html>
