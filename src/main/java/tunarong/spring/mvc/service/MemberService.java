@@ -35,4 +35,27 @@ public class MemberService {
         return result;
     }
 
+
+    // 동이름으로 우편번호 검색
+    public String findZipcode(String dong) {
+        // 123-456 서울, 종로구, 창신동, 987-456번지
+        /*StringBuilder sb= new StringBuilder();
+        sb.append("123-456").append(",")
+          .append("서울").append(",")
+          .append("종로구").append(",")
+          .append("창신동").append(",")
+          .append("987-456번지");
+
+        return sb.toString();*/
+
+        // {zip:"123-456", sido:"서울", gugun:"종로구", dong:"창신동", bunji:"987-456번지"}
+        StringBuilder sb = new StringBuilder();
+        sb.append("{zip:\"123-456\",")
+          .append("sido:\"서울\",")
+          .append("gugun:\"종로구\",")
+          .append("dong:\"창신동\",")
+          .append("bunji:\"987-456번지\"}");
+
+        return sb.toString();
+    }
 }
