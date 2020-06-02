@@ -75,3 +75,6 @@ create table zipcode (
 );
 
 select * from zipcode where dong like '이도일동';
+
+-- 아이디 중복 체크
+select count(mno) from Members where userid = 'arong2';
