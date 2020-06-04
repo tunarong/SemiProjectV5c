@@ -3,6 +3,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
+
 <%
     // 게시판 리스트 처리 - 페이징
     // 1. 전체 게시물수 처리 (bdcnt : 552)
@@ -71,15 +72,18 @@
         <hr>
     </div> <!-- 타이틀 -->
 
-    <div class="row margin1050">
-        <div class="col-12 text-right">
-            <button type="button" id="newbd"
-                    class="btn btn-light">
-                <i class="fa fa-plus-circle"> </i>
-                새글쓰기
-            </button>
-        </div>
-    </div><!-- 버튼들 -->
+
+        <div class="row margin1050">
+            <c:if test="${not empty UID}" >
+            <div class="col-12 text-right">
+                <button type="button" id="newbd"
+                        class="btn btn-light">
+                    <i class="fa fa-plus-circle"> </i>
+                    새글쓰기
+                </button>
+            </div>
+            </c:if>
+        </div><!-- 버튼들 -->
 
     <div class="row margin1050">
         <div class="col-12">

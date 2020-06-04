@@ -3,6 +3,7 @@ package tunarong.spring.mvc.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 import tunarong.spring.mvc.service.LoginService;
 import tunarong.spring.mvc.vo.MemberVO;
 
@@ -47,4 +48,17 @@ public class LoginController {
 
         return "redirect:/index";
     }
+
+    // 로그인 실패 또는 로그인이 필요한 페이지에 무단으로 접근했을 때
+    @RequestMapping(value = "login/fail")
+    public ModelAndView loginfail() {
+
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("layout/layout");
+
+        mv.addObject("action", "../loginfail.jsp");
+
+        return mv;
+    }
+
 }
