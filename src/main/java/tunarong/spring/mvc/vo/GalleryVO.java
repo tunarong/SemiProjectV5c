@@ -1,8 +1,6 @@
 package tunarong.spring.mvc.vo;
 
-
-// 액션태그에 사용할 자바빈즈 클래스
-public class GalleryVO{
+public class GalleryVO {
 
     private String gno;
     private String title;
@@ -110,4 +108,4 @@ public class GalleryVO{
     public void setFname3(String fname3) {
         this.fname3 = fname3;
     }
-}
+};

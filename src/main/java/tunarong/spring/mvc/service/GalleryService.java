@@ -1,12 +1,10 @@
 package tunarong.spring.mvc.service;
 
+import tunarong.spring.mvc.dao.GalleryDAO;
+import tunarong.spring.mvc.vo.GalleryVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-import tunarong.spring.mvc.dao.BoardDAO;
-import tunarong.spring.mvc.dao.GalleryDAO;
-import tunarong.spring.mvc.vo.BoardVO;
-import tunarong.spring.mvc.vo.GalleryVO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,27 +15,28 @@ public class GalleryService {
     private GalleryDAO gdao;
     private ImageUploadUtil imgutil;
 
-    // 새 갤러리 쓰기
     @Autowired
-    public GalleryService(GalleryDAO gdao, ImageUploadUtil imgutil) {
-        this.gdao = gdao;
-        this.imgutil = imgutil;}
+    public GalleryService(GalleryDAO dgao, ImageUploadUtil imgutil) {
+        this.gdao = dgao;
+        this.imgutil = imgutil;
+    }
 
+    // 새 갤러리 쓰기
     public void newGallery(GalleryVO gvo, MultipartFile[] img) {
 
         // 업로드 이미지 처리
         // 첨부파일이 존재하는 경우
-        if (imgutil.checkGalleryFiles(img)) {
+        if(imgutil.ckeckGalleryFiles(img)){
             List<String> fnames = new ArrayList<>();
-            for (MultipartFile f : img) {
-                // 첨부 파일이 존재한다면 서버에 저장하고
-                // 결과로 파일이름을 받아서 배열에 저장함
-                if (!f.getOriginalFilename().isEmpty())
+            for(MultipartFile f : img){
+                // 첨부파일이 존재한다면 이미지파일로 서버에 저장하고
+                // 결과로 파일이름을
+                if(!f.getOriginalFilename().isEmpty()){
                     fnames.add(imgutil.ImageUpload(f));
-                else
+                }else {
                     fnames.add(null);
+                }
             }
-
 
             gvo.setFname1(fnames.get(0));
             gvo.setFname2(fnames.get(1));
@@ -47,29 +46,12 @@ public class GalleryService {
         // 테이블에 갤러리관련 정보 저장
         String id = gdao.insertGallery(gvo);
 
-        // 썸네일 이미지 생성
+        // 썸내일 이미지 생성
         imgutil.imageCropResize(gvo.getFname1(), id);
-
-
-
     }
-//
-//    public ArrayList<BoardVO> showBoard(String cp) {
-//        int snum = (Integer.parseInt(cp) -1) * 10;
-//
-//        return (ArrayList<BoardVO>)gdao.selectGallery(snum);
-//    }
-//
-//    public BoardVO showOneBoard(String bno) {
-//        return bdao.selectOneBoard(bno);
-//    }
-//
-//    public int countBoard() {
-//        return bdao.selectCountBoard();
-//    }
-//
-//    // 특정 게시글 삭제하기
-//    public void removeBoard(String bno) {
-//        bdao.deleteBoard(bno);
-//    }
+
+    // 갤러리 목록 표시
+    public ArrayList<GalleryVO> showGallery() {
+        return (ArrayList<GalleryVO>) gdao.selectGallery();
+    }
 }

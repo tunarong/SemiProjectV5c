@@ -12,7 +12,7 @@ $('#galokbtn').on('click', function () {
         $('#contents').focus();
 
     } else {
-        $('#pdsfrm').submit();
+        $('#galleryfrm').submit();
     }
 }); // 새글등록
 
