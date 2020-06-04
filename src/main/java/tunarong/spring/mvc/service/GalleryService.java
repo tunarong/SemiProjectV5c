@@ -54,4 +54,9 @@ public class GalleryService {
     public ArrayList<GalleryVO> showGallery() {
         return (ArrayList<GalleryVO>) gdao.selectGallery();
     }
+
+    // 갤러리 본문 출력
+    public GalleryVO showOneGallery(String gno) {
+        return gdao.selectOneGallery(gno);
+    }
 }

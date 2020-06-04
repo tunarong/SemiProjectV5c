@@ -1,11 +1,14 @@
 package tunarong.spring.mvc.dao;
 
+import org.springframework.jdbc.core.RowMapper;
 import  tunarong.spring.mvc.vo.GalleryVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 @Repository("gdao")
@@ -38,6 +41,60 @@ public class GalleryDAO {
 
     // 갤러리 목록 표시
     public List<GalleryVO> selectGallery() {
-        return null;
+        RowMapper<GalleryVO> mapper = new GalleryRowMapper();
+
+        return jdbcTemplate.query(selectGallerySQL, mapper);
     }
-};
+
+    // 갤러리 본문 출력
+    public GalleryVO selectOneGallery(String gno) {
+        Object[] params = new Object[] {gno};
+
+        RowMapper<GalleryVO> mapper = new GalleryOneMapper();
+
+        return jdbcTemplate.queryForObject(selectOneGallerySQL, params, mapper);
+    }
+
+    // selectGallery에 대한 RowMapper
+    private class GalleryRowMapper implements RowMapper<GalleryVO> {
+
+        @Override
+        public GalleryVO mapRow(ResultSet rs, int num) throws SQLException {
+            GalleryVO gvo = new GalleryVO(
+                    rs.getString("gno"),
+                    rs.getString("title"),
+                    rs.getString("userid"),
+                    rs.getString("regdate"),
+                    rs.getString("thumbup"),
+                    rs.getString("views"),
+                    null,
+                    rs.getString("fname1"),
+                    null,null
+            );
+
+            return gvo;
+        }
+    }
+
+    // selectOneGallery에 대한 RowMapper
+    private class GalleryOneMapper implements RowMapper<GalleryVO> {
+
+        @Override
+        public GalleryVO mapRow(ResultSet rs, int num) throws SQLException {
+            GalleryVO gvo = new GalleryVO(
+                    rs.getString("gno"),
+                    rs.getString("title"),
+                    rs.getString("userid"),
+                    rs.getString("regdate"),
+                    rs.getString("thumbup"),
+                    rs.getString("views"),
+                    rs.getString("contents"),
+                    rs.getString("fname1"),
+                    rs.getString("fname2"),
+                    rs.getString("fname3")
+            );
+
+            return gvo;
+        }
+    }
+}
